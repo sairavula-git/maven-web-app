@@ -8,8 +8,8 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: ${{ env.AWS_REGION }}                  
-  ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+  AWS_REGION: ${{ AWS_REGION }}                  
+  ECR_REPOSITORY: ${{ ECR_REPOSITORY }}
 
 permissions:
   contents: read
