@@ -28,7 +28,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-region: $AWS_REGION
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -40,7 +40,6 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        export VERSION = $(cat version)
         docker build -t $ECR_REPOSITORY:latest .
         docker push $ECR_REPOSITORY:latest
         echo "image=$ECR_REPOSITORY:latest" >> $GITHUB_OUTPUT
